@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const MainContainer = styled.div`
     height: 100vh;
-    background-color: #b08968;
 
     .notFinished {
         .typing {

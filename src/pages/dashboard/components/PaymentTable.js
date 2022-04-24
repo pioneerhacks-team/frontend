@@ -6,7 +6,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Payment from "./Payment";
 import { TableContainer } from "./styled/PaymentTable.styled";
 
-const PaymentTable = ({ userInfos }) => {
+const PaymentTable = ({ userInfos, token, refreshData, setUserInfos }) => {
     const { payments } = userInfos.data;
 
     return (
@@ -32,6 +32,9 @@ const PaymentTable = ({ userInfos }) => {
                                     userInfos={userInfos}
                                     id={payment._id}
                                     payment={payment}
+                                    refreshData={refreshData}
+                                    token={token}
+                                    setUserInfos={setUserInfos}
                                     isRecurring
                                 />
                                 <tr style={{ height: "10px" }} />
@@ -60,6 +63,9 @@ const PaymentTable = ({ userInfos }) => {
                                     key={payment._id}
                                     userInfos={userInfos}
                                     id={payment._id}
+                                    setUserInfos={setUserInfos}
+                                    refreshData={refreshData}
+                                    token={token}
                                     payment={payment}
                                 />
                                 <tr style={{ height: "10px" }} />

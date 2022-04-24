@@ -32,10 +32,14 @@ const getUser = async (token, setUserInfos) => {
     return { error };
 };
 
+const refreshData = (token, setUserInfos) => {
+    getUser(token, setUserInfos);
+};
+
 const Dashboard = ({ removeToken }) => {
     const token = localStorage.getItem("token");
 
-    const [userInfos, setUserInfos] = useState();
+    const [userInfos, setUserInfos] = useState("");
     const [isAddingNewPayment, setAddingNewPayment] = useState(false);
 
     const handleDisconnect = useCallback(() => {
@@ -85,7 +89,12 @@ const Dashboard = ({ removeToken }) => {
                                 setAddingNewPayment={setAddingNewPayment}
                             />
                         )}
-                        <PaymentTable userInfos={userInfos} />
+                        <PaymentTable
+                            refreshData={refreshData}
+                            token={token}
+                            setUserInfos={setUserInfos}
+                            userInfos={userInfos}
+                        />
                         {/* <Boxes usersInfos={userInfos.data} budget={userInfos.data.budget}/> */}
                         <Calendar />
                     </div>

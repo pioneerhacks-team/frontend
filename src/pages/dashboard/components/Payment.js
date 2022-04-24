@@ -3,7 +3,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const updateUserInfos = async (userInfos, isRecurring, id) => {
+const updateUserInfos = async (
+    userInfos,
+    isRecurring,
+    id,
+    setUserInfos,
+    refreshData,
+    token
+) => {
     userInfos.data.payments[isRecurring ? "recurrent" : "single"].forEach(
         (el, index, object) => {
             if (el._id === id) {
@@ -20,13 +27,34 @@ const updateUserInfos = async (userInfos, isRecurring, id) => {
         headers: {
             "Content-Type": "application/json;",
         },
-    }).then((r) => r.json());
+    })
+        .then((r) => r.json())
+        .then(() => {
+            setUserInfos(userInfos);
+            refreshData(token, setUserInfos);
+        });
 };
 
-const Payment = ({ userInfos, payment, isRecurring, id, setUserInfos }) => {
-    function handleClick() {
-        updateUserInfos(userInfos, isRecurring, id, setUserInfos);
-        window.location.reload(false);
+const Payment = ({
+    payment,
+    isRecurring,
+    id,
+    userInfos,
+    setUserInfos,
+    refreshData,
+    token,
+}) => {
+    async function handleClick(e) {
+        e.preventDefault();
+
+        await updateUserInfos(
+            userInfos,
+            isRecurring,
+            id,
+            setUserInfos,
+            refreshData,
+            token
+        );
     }
 
     return (

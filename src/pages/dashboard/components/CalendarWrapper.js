@@ -1,18 +1,29 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { CalendarFormat } from "./styled/CalendarWrapper.styled";
 
-const CalendarWrapper = () => {
+// eslint-disable-next-line no-unused-vars
+const CalendarWrapper = ({ userInfosRecur, userInfosSingle }) => {
     const [date, setDate] = useState();
+    // function findEvent() {
+    //     userInfosRecur.forEach((el) => {
+    //         if (el.date === date) {
+    //             console.log("yes");
+    //         }
+    //     });
+    // }
     // https://www.npmjs.com/package/react-calendar
     return (
-        <div>
+        <CalendarFormat>
             <Calendar
-                onChange={(ev) => setDate(ev.target.value)}
+                onClickDay={(ev) => {
+                    setDate(ev.target.value);
+                }}
                 value={date}
             />
-            <p>THIS IS THE EVENT YOU CHOSE :)</p>
-        </div>
+            <p>{}</p>
+        </CalendarFormat>
     );
 };
 

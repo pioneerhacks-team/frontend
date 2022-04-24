@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const FormContainer = styled.div`
     height: 100vh;
 
-    background-color: #b08968;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
