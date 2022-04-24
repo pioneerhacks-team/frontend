@@ -7,7 +7,7 @@ import { FormContainer } from "../register/Register.styled";
 const loginUser = async (email, password, setToken, setError) => {
     let error = false;
 
-    await fetch("http://localhost:5000/login", {
+    await fetch("https://budget101-api.ggbonsai.app/login", {
         method: "POST",
         body: JSON.stringify({
             email,

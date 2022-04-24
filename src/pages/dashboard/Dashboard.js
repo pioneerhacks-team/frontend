@@ -10,7 +10,7 @@ import { MainContainer } from "./Dashboard.styled";
 const getUser = async (token, setUserInfos) => {
     let error = false;
 
-    await fetch("http://localhost:5000/getUser", {
+    await fetch("https://budget101-api.ggbonsai.app/getUser", {
         method: "POST",
         body: JSON.stringify({
             token,

@@ -10,7 +10,7 @@ const updateUserInfos = async (userInfos, payments, isRecurring) => {
     userInfos.data.payments[isRecurring ? "recurrent" : "single"].push(
         payments
     );
-    fetch("http://localhost:5000/updateUserInfos", {
+    fetch("https://budget101-api.ggbonsai.app/updateUserInfos", {
         method: "POST",
         body: JSON.stringify({
             ...userInfos,
@@ -116,10 +116,7 @@ const AddPayment = ({ setAddingNewPayment, userInfos }) => {
                             />
                         </div>
                     )}
-                    <button
-                        type="submit"
-                        className="addButton"
-                    >
+                    <button type="submit" className="addButton">
                         Add new payment
                     </button>
                 </form>

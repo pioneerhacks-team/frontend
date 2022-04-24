@@ -19,7 +19,7 @@ const updateUserInfos = async (
         }
     );
 
-    fetch("http://localhost:5000/updateUserInfos", {
+    fetch("https://budget101-api.ggbonsai.app/updateUserInfos", {
         method: "POST",
         body: JSON.stringify({
             ...userInfos,
