@@ -29,7 +29,9 @@ const Budget = ({ userInfos }) => {
     async function handleEdit() {
         setEditing((prevState) => !prevState);
 
-        if (isEditing) {
+        console.log(isEditing)
+
+        if (!isEditing) {
             await updateUserInfos(userInfos, parseFloat(budget));
         }
     }
