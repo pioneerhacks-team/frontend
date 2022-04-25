@@ -36,22 +36,24 @@ const Budget = ({ userInfos }) => {
 
     return (
         <BudgetContainer>
-            <label htmlFor="budget">Current budget $</label>
-            <div>
-                <input
-                    type="text"
-                    id="budget"
-                    required
-                    value={budget}
-                    maxLength="10"
-                    min="0.01"
-                    onChange={(ev) => setBudget(ev.target.value)}
-                    disabled={!isEditing}
-                />
-                <button type="button" onClick={handleEdit}>
-                    <FontAwesomeIcon icon={isEditing ? faCheck : faEdit} />
-                </button>
-            </div>
+            <form onSubmit={handleEdit}>
+                <label htmlFor="budget">Current budget $</label>
+                <div>
+                    <input
+                        type="text"
+                        id="budget"
+                        required
+                        value={budget}
+                        maxLength="10"
+                        min="0.01"
+                        onChange={(ev) => setBudget(ev.target.value)}
+                        disabled={!isEditing}
+                    />
+                    <button type="submit">
+                        <FontAwesomeIcon icon={isEditing ? faCheck : faEdit} />
+                    </button>
+                </div>
+            </form>
         </BudgetContainer>
     );
 };
