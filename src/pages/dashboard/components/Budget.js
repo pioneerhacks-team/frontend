@@ -27,7 +27,7 @@ const Budget = ({ userInfos }) => {
     );
 
     async function handleEdit(e) {
-        e.preventDefault()
+        e.preventDefault();
 
         setEditing((prevState) => !prevState);
 
@@ -42,12 +42,13 @@ const Budget = ({ userInfos }) => {
                 <label htmlFor="budget">Current budget $</label>
                 <div>
                     <input
-                        type="text"
+                        type="number"
                         id="budget"
                         required
                         value={budget}
                         maxLength="10"
                         min="0.01"
+                        step="any"
                         onChange={(ev) => setBudget(ev.target.value)}
                         disabled={!isEditing}
                     />
