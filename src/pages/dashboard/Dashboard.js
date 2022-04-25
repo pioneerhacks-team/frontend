@@ -5,12 +5,13 @@ import PaymentTable from "./components/PaymentTable";
 import AddPayment from "./components/AddPayment";
 // import Boxes from "./components/Boxes";
 import Calendar from "./components/CalendarWrapper";
+import Graph from "./components/Graph";
 import { MainContainer } from "./Dashboard.styled";
 
 const getUser = async (token, setUserInfos) => {
     let error = false;
 
-    await fetch("https://budget101-api.ggbonsai.app/getUser", {
+    await fetch("https://payteach-api.ggbonsai.app/getUser", {
         method: "POST",
         body: JSON.stringify({
             token,
@@ -96,7 +97,11 @@ const Dashboard = ({ removeToken }) => {
                             userInfos={userInfos}
                         />
                         {/* <Boxes usersInfos={userInfos.data} budget={userInfos.data.budget}/> */}
-                        <Calendar />
+                        <Calendar payments={userInfos.data.payments} />
+                        <Graph
+                            budget={userInfos.data.budget}
+                            payments={userInfos.data.payments}
+                        />
                     </div>
                 )}
             </MainContainer>

@@ -19,7 +19,7 @@ const updateUserInfos = async (
         }
     );
 
-    fetch("https://budget101-api.ggbonsai.app/updateUserInfos", {
+    fetch("https://payteach-api.ggbonsai.app/updateUserInfos", {
         method: "POST",
         body: JSON.stringify({
             ...userInfos,

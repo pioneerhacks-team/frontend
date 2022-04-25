@@ -6,7 +6,7 @@ import { FormContainer } from "./Register.styled";
 const registerUser = async (email, username, password, setToken, setError) => {
     let error = false;
 
-    await fetch("https://budget101-api.ggbonsai.app/register", {
+    await fetch("https://payteach-api.ggbonsai.app/register", {
         method: "POST",
         body: JSON.stringify({
             email,
@@ -82,6 +82,7 @@ const Register = ({ setToken }) => {
                         <input
                             type="username"
                             id="username"
+                            maxLength="32"
                             required
                             value={username}
                             onChange={(ev) => setUsername(ev.target.value)}
@@ -93,6 +94,7 @@ const Register = ({ setToken }) => {
                             type="password"
                             id="password"
                             className="errorCase"
+                            maxLength="32"
                             required
                             value={password}
                             onChange={(ev) => setPassword(ev.target.value)}

@@ -9,7 +9,7 @@ const Home = () => {
 
     const sentences = [
         "Introducing...",
-        "Budget101!",
+        "PayTeach!",
         "We aim to offer teachers the tools...",
         "to manage,",
         "to analyze,",

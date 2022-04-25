@@ -10,7 +10,7 @@ const updateUserInfos = async (userInfos, payments, isRecurring) => {
     userInfos.data.payments[isRecurring ? "recurrent" : "single"].push(
         payments
     );
-    fetch("https://budget101-api.ggbonsai.app/updateUserInfos", {
+    fetch("https://payteach-api.ggbonsai.app/updateUserInfos", {
         method: "POST",
         body: JSON.stringify({
             ...userInfos,
@@ -62,6 +62,7 @@ const AddPayment = ({ setAddingNewPayment, userInfos }) => {
                         <input
                             type="name"
                             id="name"
+                            maxLength="32"
                             value={name}
                             onChange={(ev) => setName(ev.target.value)}
                             required
@@ -72,6 +73,9 @@ const AddPayment = ({ setAddingNewPayment, userInfos }) => {
                         <input
                             type="number"
                             id="price"
+                            maxLength="10"
+                            min="0.01"
+                            step="any"
                             value={price}
                             onChange={(ev) => setPrice(ev.target.value)}
                             required
@@ -110,6 +114,8 @@ const AddPayment = ({ setAddingNewPayment, userInfos }) => {
                             <input
                                 type="number"
                                 id="days"
+                                maxLength="10"
+                                min="1"
                                 value={frequency}
                                 onChange={(ev) => setFrequency(ev.target.value)}
                                 required

@@ -1,1 +1,1 @@
-# pioneerhacks-team frontend
+# PayTeach frontend
