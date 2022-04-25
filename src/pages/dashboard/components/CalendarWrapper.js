@@ -37,7 +37,6 @@ const CalendarWrapper = ({ payments }) => {
                     onClickDay={(ev) => {
                         setCurrDate(ev);
                     }}
-                    showNavigation={false}
                     value={currDate}
                     tileClassName={({ date }) => {
                         const tileDate = {
