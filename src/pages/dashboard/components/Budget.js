@@ -26,12 +26,12 @@ const Budget = ({ userInfos }) => {
         userInfos.data.budget === 0 ? 100 : userInfos.data.budget
     );
 
-    async function handleEdit() {
+    async function handleEdit(e) {
+        e.preventDefault()
+
         setEditing((prevState) => !prevState);
 
-        console.log(isEditing)
-
-        if (!isEditing) {
+        if (isEditing) {
             await updateUserInfos(userInfos, parseFloat(budget));
         }
     }
