@@ -108,12 +108,6 @@ const Graph = ({ budget, payments }) => {
             </GraphStyle>
             <TextContainer>
                 <p>You have spent {calcPercent() * 100}% of your budget so far.</p>
-                {calcMonths() && calcMonths() > 0 && (
-                    <p id="last-element">
-                        At this rate, it will take {Math.round(calcMonths())}{" "}
-                        months to spend your budget.
-                    </p>
-                )}
             </TextContainer>
         </>
     );

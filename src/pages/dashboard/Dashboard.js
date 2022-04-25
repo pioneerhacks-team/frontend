@@ -3,7 +3,6 @@ import FadeIn from "react-fade-in";
 import Budget from "./components/Budget";
 import PaymentTable from "./components/PaymentTable";
 import AddPayment from "./components/AddPayment";
-// import Boxes from "./components/Boxes";
 import Calendar from "./components/CalendarWrapper";
 import Graph from "./components/Graph";
 import { MainContainer } from "./Dashboard.styled";
