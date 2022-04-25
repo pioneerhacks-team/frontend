@@ -22,7 +22,9 @@ const updateUserInfos = async (userInfos, budget) => {
 
 const Budget = ({ userInfos }) => {
     const [isEditing, setEditing] = useState(false);
-    const [budget, setBudget] = useState(userInfos.data.budget);
+    const [budget, setBudget] = useState(
+        userInfos.data.budget === 0 ? 100 : userInfos.data.budget
+    );
 
     async function handleEdit() {
         setEditing((prevState) => !prevState);
