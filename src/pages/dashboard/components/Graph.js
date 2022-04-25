@@ -12,7 +12,7 @@ const Graph = ({ budget, payments }) => {
     function calcRecur() {
         let cost = 0;
         recurrent.forEach((a) => {
-            if (curDate > Date.parse(a.date))
+            if (curDate >= Date.parse(a.date))
                 cost +=
                     Math.floor(
                         (curDate - Date.parse(a.date)) /
@@ -27,7 +27,7 @@ const Graph = ({ budget, payments }) => {
     function calcSingle() {
         let cost = 0;
         single.forEach((a) => {
-            if (curDate > Date.parse(a.date)) cost += a.price;
+            if (curDate >= Date.parse(a.date)) cost += a.price;
             allDates.push(Date.parse(a.date));
         });
         return cost;
@@ -38,7 +38,7 @@ const Graph = ({ budget, payments }) => {
     const totalCost = recurCost + singleCost;
 
     function calcPercent() {
-        return (totalCost + 0.0) / budget;
+        return (totalCost / budget) * 100;
     }
 
     function calcMonths() {
@@ -110,7 +110,7 @@ const Graph = ({ budget, payments }) => {
                 <p>
                     You have spent {calcPercent() * 10}% of your budget so far.
                 </p>
-                {calcPercent() * 10 > 75 && (
+                {calcPercent() >= 75 && (
                     <>
                         <br />
                         <p>
