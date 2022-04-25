@@ -107,9 +107,7 @@ const Graph = ({ budget, payments }) => {
                 />
             </GraphStyle>
             <TextContainer>
-                <p>
-                    You have spent {calcPercent() * 10}% of your budget so far.
-                </p>
+                <p>You have spent {calcPercent()}% of your budget so far.</p>
                 {calcPercent() >= 75 && (
                     <>
                         <br />
